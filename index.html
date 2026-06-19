@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>新球体育 · 稳定服务入口说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f8f6f0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: #2e2b27;
+            line-height: 1.7;
+            padding: 0 1.5rem 4rem;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            background-color: #fefcf8;
+            border-radius: 2px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.03);
+            padding: 0 1.5rem 3rem;
+        }
+
+        /* hero 区 */
+        .hero {
+            padding: 3.2rem 0 2.8rem;
+            text-align: center;
+            border-bottom: 1px solid #e6dfd3;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #332f2a;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .subhead {
+            font-size: 1.15rem;
+            color: #635f58;
+            max-width: 580px;
+            margin: 0.5rem auto 1.4rem;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #e2dfd5;
+            color: #36302b;
+            font-size: 0.85rem;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            letter-spacing: 0.04em;
+            font-weight: 450;
+        }
+
+        /* 优势区 —— 卡片网格 */
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.8rem;
+            margin: 3rem 0 2.8rem;
+        }
+
+        .advantage-card {
+            background-color: #f9f6ef;
+            padding: 1.8rem 1.4rem;
+            border-radius: 1px;
+            border-left: 4px solid #b7a78a;
+            transition: background 0.2s;
+        }
+
+        .advantage-card:hover {
+            background-color: #f2ede3;
+        }
+
+        .advantage-card h3 {
+            font-size: 1.1rem;
+            font-weight: 530;
+            margin-bottom: 0.5rem;
+            color: #3b352f;
+        }
+
+        .advantage-card p {
+            font-size: 0.95rem;
+            color: #504a43;
+        }
+
+        /* 说明区 —— 引用块及文本 */
+        .explain-block {
+            background-color: #f7f1e8;
+            padding: 2.2rem 2rem;
+            margin: 2.4rem 0 2.8rem;
+            border-radius: 2px;
+            border-left: 6px solid #8f7d64;
+        }
+
+        .explain-block blockquote {
+            font-style: normal;
+            font-size: 1.05rem;
+            color: #2d2822;
+            margin: 0 0 0.8rem 0;
+            padding: 0 0 0 0.2rem;
+            border: none;
+            font-weight: 450;
+        }
+
+        .explain-block blockquote::before {
+            content: "▌ ";
+            color: #8f7d64;
+            font-weight: 600;
+        }
+
+        .explain-block p {
+            margin: 0.9rem 0 0;
+            font-size: 0.98rem;
+            color: #4b443c;
+        }
+
+        .explain-block strong {
+            color: #3f352c;
+        }
+
+        /* 提示框 inline */
+        .note-box {
+            background: #f0ece2;
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0 2.5rem;
+            border-radius: 2px;
+            font-size: 0.95rem;
+            color: #3a342e;
+            border: 1px solid #ddd6c8;
+        }
+
+        .note-box span.marker {
+            font-weight: 550;
+            color: #5e4d36;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            margin: 2.8rem 0 2rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.45rem;
+            font-weight: 470;
+            letter-spacing: 0.02em;
+            border-bottom: 1px solid #ded6c6;
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.6rem;
+            color: #332d26;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item .question {
+            font-weight: 530;
+            display: block;
+            font-size: 1rem;
+            color: #39332b;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-item .answer {
+            font-size: 0.95rem;
+            color: #5f584e;
+            padding-left: 0.2rem;
+        }
+
+        .faq-item .answer a {
+            color: #5f4d36;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 0.5px;
+        }
+
+        /* 底部链接 & 引用 */
+        .bottom-links {
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0d8ca;
+            font-size: 0.92rem;
+            color: #5b5449;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem 1.2rem;
+        }
+
+        .bottom-links .link-group a {
+            color: #5a4d3a;
+            text-decoration: none;
+            border-bottom: 1px dotted #b7aa95;
+            margin-right: 1.4rem;
+            font-weight: 450;
+            transition: border 0.15s;
+        }
+
+        .bottom-links .link-group a:hover {
+            border-bottom: 1px solid #3f3327;
+        }
+
+        .bottom-links .reference {
+            opacity: 0.75;
+            font-size: 0.85rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 0 0.6rem 3rem;
+            }
+
+            .container {
+                padding: 0 1rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .advantages {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .explain-block {
+                padding: 1.6rem 1.2rem;
+            }
+
+            .bottom-links {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .bottom-links .link-group a {
+                margin-right: 0.8rem;
+                display: inline-block;
+                margin-bottom: 0.3rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                padding: 0 2.5rem 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- hero -->
+    <header class="hero">
+        <h1>新球体育</h1>
+        <p class="subhead">稳定、清晰的信息服务入口，为体育内容访问提供持续可及的路径说明。</p>
+        <span class="badge">入口稳定性 · v2.4</span>
+    </header>
+
+    <!-- 优势区 卡片 -->
+    <section class="advantages">
+        <div class="advantage-card">
+            <h3>直达结构</h3>
+            <p>页面层级经过梳理，减少中间跳转；适合频繁查阅体育资讯的用户。</p>
+        </div>
+        <div class="advantage-card">
+            <h3>访问一致性</h3>
+            <p>域名解析与资源引用保持统一，降低因链接变动导致的访问中断。</p>
+        </div>
+        <div class="advantage-card">
+            <h3>低干扰界面</h3>
+            <p>无弹窗覆盖与轮播抢占，内容区域聚焦于核心信息呈现。</p>
+        </div>
+        <div class="advantage-card">
+            <h3>反馈可追踪</h3>
+            <p>页面结构支持常见监测标记，便于维护者定位异常节点。</p>
+        </div>
+    </section>
+
+    <!-- 说明区：引用块 信息密度略高 -->
+    <div class="explain-block">
+        <blockquote>稳定的入口并非静态不变，而是在持续调整中保持可预见性。</blockquote>
+        <p>面向日常体育信息查询场景，<strong><a href="https://web-newball.com" style="color:#3f352c; text-decoration:underline; text-underline-offset:2px;">新球体育</a></strong> 所提供的页面路径始终以降低用户认知负担为目标。从资源加载到内容分区，每一层都经过收敛与验证。对于重复访问者而言，结构上的微小优化往往意味着更少的等待与更明确的预期。</p>
+        <p style="margin-top:0.7rem;">同时也需说明：部分外部接口或资源可能在网络波动时短暂不可用，本站会在页面注释区保留备选指引。</p>
+    </div>
+
+    <!-- 提示框 -->
+    <div class="note-box">
+        <span class="marker">📌 入口说明</span> 当前页面作为索引页，所有功能区域均围绕信息可读性与资源可获取性展开。若在访问过程中遇到布局偏移或样式异常，建议先清除缓存后重载。
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h2>FAQ 摘要 · 关于访问与入口</h2>
+
+        <div class="faq-item">
+            <span class="question">Q: 新球体育 的页面是否一直使用相同域名？</span>
+            <div class="answer">主要入口域名为 <a href="https://web-newball.com">新球体育</a>，长期有效。若因备案或迁移产生变更，会在当前页面顶部 banner 区域提前公告。</div>
+        </div>
+        <div class="faq-item">
+            <span class="question">Q: 移动端和桌面端访问体验是否有区别？</span>
+            <div class="answer">布局基于视口自适应，但核心功能与链接分布保持一致。部分大屏下会展示更多上下文参考块。</div>
+        </div>
+        <div class="faq-item">
+            <span class="question">Q: 页面中的说明多久更新一次？</span>
+            <div class="answer">内容随结构迭代更新，通常每两周做一次细节审查；紧急修复不受此周期限制。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 自然放置 -->
+    <footer class="bottom-links">
+        <div class="link-group">
+            <a href="https://web-newball.com">新球体育</a>
+            <a href="#structure">页面结构</a>
+            <a href="#stability">稳定性日志</a>
+        </div>
+        <span class="reference">本文档仅作入口说明 · 更新于最近一次审查</span>
+    </footer>
+</div>
+</body>
+</html>
